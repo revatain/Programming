@@ -1,0 +1,14 @@
+<script>
+    const arr = [1, 2, 3];
+    // 배열 반복 방법 : for, while / forEach 같은 메소드
+    // 함수 선언 후 대입
+    function func(item) {
+        arr.forEach(func);
+    }
+    // 익명 함수
+    arr.forEach(function(item){
+        console.log(item);
+    });
+    // 화살표 함수
+    arr.forEach((item) => console.log(item));
+</script>

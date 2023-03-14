@@ -1,0 +1,9 @@
+ctrl alt L - 자동정렬 prettier
+ctrl S - 저장
+ctrl / - 주석전환
+ctrl Z - 뒤로가기
+ctrl shift Z - 앞으로가기
+ctrl D - 내용 아래에 복사
+ctrl W - 범위 선택
+ctrl shift 위아래방향키 - 이동
+ctrl alt O -> import 정렬

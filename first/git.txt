@@ -1,0 +1,42 @@
+------처음------
+git init
+git add .
+git commit -m "메시지"
+git remote add origin 리파지토리 주소
+git push origin master
+
+-> 실패 -> git bash 끄고 .git파일 삭제 -> 위 코드 그대로
+
+
+----두번째부터-----
+git pull origin master
+git add .
+git commit -m "메시지"
+git push origin master
+
+----다른 컴퓨터-----
+git clone 리파지토리주소
+
+(git pull origin master) -> 두번째 부터
+git add .
+git commit -m "메시지"
+git push origin master
+
+----깃 이전버전 이동-----
+git checkout 해시값
+
+돌아오기 -> git checkout master
+
+
+
+
+
+
+
+
+
+
+
+
+
+

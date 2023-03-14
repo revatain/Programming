@@ -1,0 +1,12 @@
+<button id ="btn">클릭</button>
+<script>
+const btn = document.getElementById("btn");
+btn.addEventListener("click",(e)=>{
+    // 이벤트 객체는 기본적으로 실행하는 코드가 있을 수 있다. (submit : 어떤 주소로 통신)
+    // preventDefault로 기본작업을 막음.
+    e.preventDefault();
+    console.log(e);
+    alert(`좌표 ${e.x} ${e.y}`);
+    alert(`ctrl 클릭 ${e.ctrlKey}`);
+});
+</script>

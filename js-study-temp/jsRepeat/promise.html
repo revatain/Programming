@@ -1,0 +1,14 @@
+<script>
+    // 자스 : promise, 자바 : promise, future, 다트 (플러터) : future
+    // 비동기 작업
+    // 결과가 언제 올지 모르는 작업
+    const promise = new promise((resolve, reject) => {
+        // 작업이 비동기적으로 성공하면 resolve 실패하면 reject 실행
+        setTimeout(() => {
+            resolve("성공");
+        }, 2000);
+    });
+    // then으로 성공시 받아온 값을 이용할 수 있다.
+    promise.then((result) => console.log(result)).catch((error) => console.log(error))
+    .finally(()=> console.log("작업이 완료되면 무조건 실행"));
+</script>

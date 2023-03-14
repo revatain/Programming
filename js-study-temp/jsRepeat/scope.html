@@ -1,0 +1,40 @@
+<script>
+    //scope
+    // 변수나 함수가 인식 및 참조 되는 범위
+    // var let const
+    // let은 for while if 등의 블록 안에서 작동
+
+    // for (let index = 0; index < 5; index++) {}
+    // console.log(index);
+
+    // var는 함수 안에서 작동 (밖으로 나가면 참조 안됨)
+
+    // for (var index = 0; index < 5; index++) {}
+    // console.log(index);
+    // function temp() {
+    //     var num = 1;
+    // }    
+    // temp();
+    // console.log(num);
+
+    // 변수는 스코프 내에 없으면 상위 스코프를 검색한다
+    // let num = 1;
+    // console.log(1);
+    // function temp1() {
+    //     // let num = 2;
+    //     console.log(num);
+    // }
+    // temp1();
+
+    // const
+    // 한번 선언되면 바꿀 수 없다
+    // 객체는 내부 값을 바꿀 수 있다
+    // 고정되는 것은 대상의 메모리 주소
+    // const num = 1;
+    // num = 2;
+    const arr = [];
+    console.log(arr);
+    arr.push(1);
+    console.log(arr);
+    arr = [2, 3, 4];
+</script>

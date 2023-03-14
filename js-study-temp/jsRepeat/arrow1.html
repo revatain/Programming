@@ -1,0 +1,16 @@
+<button id="btn1">function클릭</button>
+<button id="btn2">arrow클릭</button>
+<script>
+const btn1 = document.getElementById("btn1");
+btn1.addEventListener("click", function(e) {
+    console.log(this);
+    function func() {
+        console.log(this);
+    }
+    func();
+    const arrow = () => {
+        console.log(this);
+    }
+    arrow();
+});
+</script>

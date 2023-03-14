@@ -1,0 +1,28 @@
+<script>
+    class Temp {
+        constructor (arr) {
+            this.arr = arr;
+        }
+        반복하기(함수) {
+           for (let index = 0; index < this.arr.length; index++) {
+             함수(this.arr[index]);
+           }
+        }
+        
+        필터링하기(함수) {
+            const arr = [];
+            for (let index = 0; index < this.arr.length; index++) {
+                // true이면 새 배열에 담기
+            if(함수(this.arr[index])) {
+                arr.push(this.arr[index]);
+            }
+            return arr;
+        }       
+    }
+    }
+    const temp = new Temp ([1, 2, 3, 4]);
+    // temp.반복하기((item) => console.log(item));
+    const result = temp.필터링하기((item) => {
+        return item % 2 == 0;
+    });
+</script>

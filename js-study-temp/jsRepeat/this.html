@@ -1,0 +1,15 @@
+<script>
+    // this는 객체 자기 자신을 가리킨다
+    class temp {
+        constructor(name) {
+            this.name = name;
+        }
+        speak () {
+            console.log(this.name);
+        }
+    }
+    const temp1 = new temp ("홍길동");
+    const temp2 = new temp ("임꺽정");
+    temp1.speak();
+    temp2.speak();
+</script>
