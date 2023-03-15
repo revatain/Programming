@@ -1,7 +1,9 @@
 import 'dart:js';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_stateful_1/counter_controller.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,11 +36,10 @@ class _ParentState extends State<Parent> {
   @override
   Widget build(BuildContext context) {
     final counterController = context.read<CounterController>();
-    return Row(
-      children: [
-        Child1(),
-        Child2(),
-      ],
+    return ElevatedButton(onPressed: () {
+      counterController.changeTo(Random().nextInt(100));
+    },
+
     );
   }
 }
@@ -63,6 +64,7 @@ class Child2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text("0");
+    final counterController = context.watch();
+    return Text("${counterController.count}");
   }
 }
