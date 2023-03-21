@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_navigator_named/routes.dart';
 import 'package:flutter_navigator_named/view/first_page.dart';
 import 'package:flutter_navigator_named/view/fourth_page.dart';
 import 'package:flutter_navigator_named/view/second_page.dart';
@@ -20,10 +21,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/': (context) => const FirstPage(),
-        '/second': (context) => const SecondPage(),
-        '/third': (context) => const ThirdPage(),
-        '/fourth': (context) => const FourthPage(),
+        Routes.first: (context) => const FirstPage(),
+        Routes.second: (context) => const SecondPage(),
+        Routes.third: (context) => const ThirdPage(),
+        Routes.fourth: (context) => const FourthPage(),
       },
       initialRoute: '/',
       // home: const FirstPage(), // routes 사용하면 사용안해도 됨
