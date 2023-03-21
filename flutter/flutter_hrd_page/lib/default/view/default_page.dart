@@ -30,6 +30,7 @@ class DefaultPage extends HookWidget {
     final navIndex = useState(0);
     print("DefaultPage 빌드됨" + navIndex.value.toString());
 
+
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text("나의 정보")),
