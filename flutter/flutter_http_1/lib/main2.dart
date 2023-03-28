@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_http_1/list_page.dart';
+import 'package:flutter_http_1/listpage.dart';
 
-void main(){
+void main2(){
   runApp(MyApp());
 }
 
