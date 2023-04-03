@@ -16,7 +16,7 @@ class MovieListPage extends HookWidget {
     final listState = useState<List<MovieDTOTable>?>(null);
     useEffect(() {
       MovieRepository.instance.getDTOList().then((value){
-        listState.value = value;
+        listState.value = value as List<MovieDTOTable>?;
       });
     }, []);
 
@@ -44,11 +44,11 @@ class MovieListItem extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text("박스오피스 : ${movieDTOTable.office}"),
+          Text("movieCd : ${movieDTOTable.movieCd}"),
           Divider(),
-          Text("날짜범위 : ${movieDTOTable.showrange}"),
+          Text("movieNm : ${movieDTOTable.movieNm}"),
           Divider(),
-          Text("영화리스트 : ${movieDTOTable.officelist}"),
+          Text("openDt : ${movieDTOTable.openDt}"),
         ],
       ),
     );

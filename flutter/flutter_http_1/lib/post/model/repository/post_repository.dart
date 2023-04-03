@@ -1,10 +1,9 @@
 // post_repository.dart
 import 'dart:convert';
 
-import 'package:flutter_http_1/model/dto/post_dto.dart';
+import 'package:flutter_http_1/post/model/dto/post_dto.dart';
 import 'package:http/http.dart' as http;
 
-import '../dto/post_dto.dart';
 
 class PostRepository{
   // 싱글톤 - 해당 타입의 객체가 프로그램에서 단 1개
@@ -29,7 +28,13 @@ class PostRepository{
     }
   }
 
-
+  Future<PostDTODetail?> getDTO(int postId) async {
+    String url = "https://jsonplaceholder.typicode.com/posts/$postId";
+    http.Response response = await http.get(Uri.parse(url));
+    if(response.statusCode == 200){
+      return PostDTODetail.fromJson(jsonDecode(response.body));
+    }
+  }
 }
 
 // void main() {

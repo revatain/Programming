@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_http_1/post/controller/post_table_controller.dart';
 import 'package:flutter_http_1/post/view/pages/list_page.dart';
+import 'package:flutter_http_1/routes.dart';
+import 'package:provider/provider.dart';
 
 void main(){
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (BuildContext context) => PostTableController()),
+      ],
+      child: MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,8 +20,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ListPage(),
+    return MaterialApp.router(
+      routerConfig: Routes.goRouter,
     );
   }
 }

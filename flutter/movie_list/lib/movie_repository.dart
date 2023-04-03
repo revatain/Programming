@@ -14,21 +14,21 @@ class MovieRepository{
   MovieRepository._();
 
   // 싱글톤 객체 getter
-  static MovieRepository get instance => _instance ??= MovieRepository._();
+  static MovieRepository get instance => _instance = MovieRepository._();
 
   // 통신은 실패할 수 있다 == nullable
-  Future<List<MovieDTOTable>?> getDTOList() async {
-    String url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101";
+  Future<Object?> getDTOList() async {
+    final String url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101";
     http.Response response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      return MovieDTOTable.fromJsonList(jsonDecode(response.body));
+      dynamic json = jsonDecode(response.body);
+      return MovieDTOTable.fromJsonList(json["getAttractionKr"]["item"]);
     } else {
       return null;
     }
   }
-
-
 }
+
 
 // void main() {
 //   PostRepository.instance;
