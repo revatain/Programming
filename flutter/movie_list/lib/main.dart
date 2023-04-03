@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_http_1/post/view/pages/list_page.dart';
+import 'package:movie_list/movie_list_page.dart';
 
 void main(){
   runApp(MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ListPage(),
+      home: MovieListPage(),
     );
   }
 }

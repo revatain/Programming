@@ -38,11 +38,7 @@ class ListPage extends HookWidget {
           // List를 map 함수로 풀어서
           // 요소를 PostDTOTable로 변경
           // state에 입력
-          listState.value = jsonList.map((data) {
-            // return PostDTOTable(
-            //     userId: data["userId"], id: data["id"], title: data["title"]);
-            return PostDTOTable.fromJson(data);
-          }).toList();
+          listState.value = PostDTOTable.fromJsonList(jsonDecode(response.body));
         }
 
         // jsonState.value = response.body;

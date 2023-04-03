@@ -18,6 +18,11 @@ class PostDTOTable {
     name: json["name"],
     email: json["email"],
   );
+
+  // 팩토리 아님
+  static List<PostDTOTable> fromJsonList(List jsonList) {
+    return jsonList.map((json) => PostDTOTable.fromJson(json)).toList();
+  }
 }
 
 // 상세 페이지 용
