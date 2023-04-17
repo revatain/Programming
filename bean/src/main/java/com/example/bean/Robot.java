@@ -1,4 +1,8 @@
 package com.example.bean;
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class Robot{
     private final Arm arm;
     private final Leg leg;
