@@ -12,24 +12,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Controller
 public class TempController {
    
-    private final TempComponent tempComponent;
-    private final ObjectMapper objectMapper;
+    private Robot robot;
     
 
 
-    public TempController(TempComponent tempComponent, ObjectMapper objectMapper) {
-        this.tempComponent = tempComponent;
-        this.objectMapper = objectMapper;
+
+
+    public TempController(Robot robot) {
+        this.robot = robot;
     }
+
+
 
 
 
     @GetMapping
     @ResponseBody
     public String temp() throws JsonProcessingException{
-        tempComponent.print();
-        String writeValueAsString = objectMapper.writeValueAsString(new ArrayList<>());
-        System.out.println(writeValueAsString);
+        System.out.println(robot.toString());
         return "안녕하세요";
     }
 }
