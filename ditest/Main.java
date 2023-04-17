@@ -1,5 +1,7 @@
 class Main {
     public static void main(String[] args) {
-        System.out.println("실행확인");
+        Arm arm = new Arm();
+        Leg leg = new Leg();
+        Robot robot = new Robot(arm, leg);
     }
 }
