@@ -3,7 +3,8 @@
 <mapper namespace="com.example.my.todo.TodoRepository">
 
 <select id="hello" resultType="java.lang.String">
- SELECT 'ㅎㅇ'
-    FROM dual;
+  select content
+  from todo
+  where idx = 1;
 </select>
 </mapper>

@@ -1,4 +1,4 @@
-package com.example.my.todo;
+package com.example.my.todo.repository;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;

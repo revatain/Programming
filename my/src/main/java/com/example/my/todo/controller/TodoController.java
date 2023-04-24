@@ -1,8 +1,10 @@
-package com.example.my.todo;
+package com.example.my.todo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.my.todo.repository.TodoRepository;
 
 import lombok.RequiredArgsConstructor;
 
