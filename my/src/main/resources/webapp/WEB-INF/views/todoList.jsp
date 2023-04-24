@@ -15,7 +15,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
       rel="stylesheet"
       id="bootstrap-css"
     />
-    <link rel="stylesheet" href="/todoList.css" />
+    <link rel="stylesheet" href="css/todoList.css" />
     <title>Title</title>
   </head>
   <body>
