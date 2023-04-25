@@ -38,7 +38,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                   <div class="checkbox">
                     <label>
                       <input onchange="" type="checkbox" value="" />
-                      <span>${todo.content}</span>
+                      <span class="count-todos">${todo.content}</span>
                     </label>
                   </div>
                 </li>
@@ -46,7 +46,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
             </ul>
             <div class="todo-footer">
               <strong>
-                <span class="count-todos">1</span>
+                <span class="count-todos">${todoCount}</span>
               </strong>
               항목 남았음
             </div>
