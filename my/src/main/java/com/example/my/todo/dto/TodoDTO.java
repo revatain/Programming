@@ -1,6 +1,5 @@
 package com.example.my.todo.dto;
 
-import lombok.Builder;
 import lombok.Data;
 
 public class TodoDTO {
