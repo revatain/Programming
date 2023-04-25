@@ -1,5 +1,7 @@
 package com.example.my.todo.repository;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +14,5 @@ public interface TodoRepository {
     String hello();
 
     TodoEntity findByIdx(Integer idx);
-
+    List<TodoEntity> findByDeleteYn(Character deleteYn);
 }
