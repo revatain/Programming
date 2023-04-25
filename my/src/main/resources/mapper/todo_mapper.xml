@@ -13,7 +13,7 @@
     </select>
 
     <select id="findByDeleteYn" parameterType="java.lang.Character" resultType="com.example.my.todo.entity.TodoEntity">
-    
+    select * from todo where delete_yn = #{deleteYn};
     </select>
 
 </mapper>

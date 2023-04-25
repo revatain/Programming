@@ -1,6 +1,7 @@
 package com.example.my.todo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.my.todo.service.TodoService;
@@ -51,7 +52,9 @@ public class TodoController {
     // }
 
     @GetMapping("/todoList")
-    public String todoList() {
+    public String todoList(Model model) {
+        System.out.println(todoService.findByDeleteYn('N'));
+        model.addAttribute("todoList", todoService.findByDeleteYn('N'));
         return "todoList";
     }
 
