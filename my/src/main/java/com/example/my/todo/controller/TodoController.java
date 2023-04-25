@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.my.todo.entity.TodoEntity;
 import com.example.my.todo.repository.TodoRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -16,8 +17,8 @@ public class TodoController {
 
     @GetMapping("/")
     @ResponseBody
-    public String hello() {
-        return todoRepository.findByIdx(1).toString();
+    public TodoEntity hello() {
+        return todoRepository.findByIdx(1);
     }
 
     @GetMapping("/todoList")
