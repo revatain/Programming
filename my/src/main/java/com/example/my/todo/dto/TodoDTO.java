@@ -1,5 +1,6 @@
 package com.example.my.todo.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 public class TodoDTO {
@@ -9,6 +10,5 @@ public class TodoDTO {
         private Integer idx;
         private String search;
     }
-
     
 }

@@ -10,10 +10,10 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class TodoService {
-    
     private final TodoRepository todoRepository;
 
     public TodoEntity findByIdx(Integer idx){
         return todoRepository.findByIdx(idx);
     }
+
 }

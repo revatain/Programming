@@ -23,8 +23,8 @@ spring:
       encoding: UTF-8
       mode: always
 
-
 mybatis:
   mapper-locations: classpath:mapper/*_mapper.xml
   configuration:
     map-underscore-to-camel-case: true
+
