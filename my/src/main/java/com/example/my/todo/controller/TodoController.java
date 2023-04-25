@@ -17,7 +17,7 @@ public class TodoController {
     @GetMapping("/")
     @ResponseBody
     public String hello(){
-        return todoRepository.hello();
+        return todoRepository.findByidx(1).toString();
     }
 
     @GetMapping("/todoList")
