@@ -13,6 +13,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 @Configuration
 @MapperScan(basePackages = "com.example.my")
 public class MybatisConfig {
+
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
 
@@ -25,7 +26,8 @@ public class MybatisConfig {
     }
 
     @Bean
-    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory){
+    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
+
 }

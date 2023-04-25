@@ -16,12 +16,13 @@ public class TodoController {
 
     @GetMapping("/")
     @ResponseBody
-    public String hello(){
-        return todoRepository.findByidx(1).toString();
+    public String hello() {
+        return todoRepository.findByIdx(1).toString();
     }
 
     @GetMapping("/todoList")
-    public String todoList(){
+    public String todoList() {
         return "todoList";
     }
+
 }

@@ -8,8 +8,9 @@ import com.example.my.todo.entity.TodoEntity;
 @Repository
 @Mapper
 public interface TodoRepository {
-    
+
     String hello();
-    
-    TodoEntity findByidx(Integer idx);
+
+    TodoEntity findByIdx(Integer idx);
+
 }
