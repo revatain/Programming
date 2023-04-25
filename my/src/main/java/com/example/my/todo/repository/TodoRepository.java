@@ -16,4 +16,11 @@ public interface TodoRepository {
 
     List<TodoEntity> findByDeleteYn(Character deleteYn);
 
+    Integer insert(TodoEntity todoEntity);
+
+    Integer update(TodoEntity todoEntity);
+
+
+
+
 }

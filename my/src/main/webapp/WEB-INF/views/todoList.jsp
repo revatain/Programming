@@ -34,14 +34,16 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
             <hr />
             <ul id="sortable" class="list-unstyled">
               <c:forEach items="${todoList}" var="todo">
-                <li class="ui-state-default">
-                  <div class="checkbox">
-                    <label>
-                      <input onchange="" type="checkbox" value="" />
-                      <span class="count-todos">${todo.content}</span>
-                    </label>
-                  </div>
-                </li>
+                <c:if test="${todo.doneYn eq 'N'.charAt(0)}">
+                  <li class="ui-state-default">
+                    <div class="checkbox">
+                      <label>
+                        <input onchange="" type="checkbox" value=""/>
+                        <span class="count-todos">${todo.content}</span>
+                      </label>
+                    </div>
+                  </li>
+                </c:if>
               </c:forEach>
             </ul>
             <div class="todo-footer">
@@ -56,25 +58,29 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
           <div class="todolist">
             <h1>Already DONE</h1>
             <ul id="done-items" class="list-unstyled">
-              <li>
-                <div class="checkbox">
-                  <label>
-                    <input
-                      onchange=""
-                      class="remove-item"
-                      type="checkbox"
-                      value=""
-                    />
-                    <span>잠자기</span>
-                  </label>
-                  <button
-                    onclick=""
-                    class="remove-item btn btn-default btn-xs pull-right"
-                  >
-                    <span class="glyphicon glyphicon-remove"></span>
-                  </button>
-                </div>
-              </li>
+              <c:foreach items="${todoList}" var="todo">
+                <c:if test="${todo.doneYn eq 'Y'.charAt(0)}">
+                  <li>
+                    <div class="checkbox">
+                      <label>
+                        <input
+                          onchange=""
+                          class="remove-item"
+                          type="checkbox"
+                          value=""
+                       />
+                       <span>${todo.content}</span>
+                      </label>
+                      <button
+                       onclick=""
+                        class="remove-item btn btn-default btn-xs pull-right"
+                      >
+                        <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                    </div>
+                  </li>
+                </c:if>
+              </c:foreach>
             </ul>
           </div>
         </div>
