@@ -41,4 +41,14 @@ public class TodoService {
         todoRepository.update(todoEntity);
     }
 
+    public void delete(Integer idx) {
+
+        TodoEntity todoEntity = todoRepository.findByIdx(idx);
+        todoEntity.setDeleteYn('Y');
+        todoEntity.setDeleteDate(LocalDateTime.now());
+
+        todoRepository.update(todoEntity);
+        
+    }
+
 }

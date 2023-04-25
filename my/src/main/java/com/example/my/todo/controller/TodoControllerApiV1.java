@@ -23,5 +23,10 @@ public class TodoControllerApiV1 {
     public void update(@RequestParam Integer idx) {
         todoService.update(idx);
     }
+
+    @GetMapping("/api/v1/delete")
+    public void delete(@RequestParam Integer idx) {
+        todoService.delete(idx);
+    }
     
 }
