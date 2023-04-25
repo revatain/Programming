@@ -17,6 +17,7 @@ public class TodoService {
     public TodoEntity findByIdx(Integer idx){
         return todoRepository.findByIdx(idx);
     }
+
     public List<TodoEntity> findByDeleteYn(Character deleteYn){
         return todoRepository.findByDeleteYn(deleteYn);
     }

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.my.todo.repository.TodoRepository">
+
     <sql id="fullColumn">
         idx, content, done_yn, delete_yn, create_date, update_date, delete_date
     </sql>
@@ -12,8 +13,16 @@
         where idx = #{idx};
     </select>
 
-    <select id="findByDeleteYn" parameterType="java.lang.Character" resultType="com.example.my.todo.entity.TodoEntity">
-    select * from todo where delete_yn = #{deleteYn};
+    <select 
+        id="findByDeleteYn" 
+        parameterType="java.lang.Character"
+        resultType="com.example.my.todo.entity.TodoEntity"
+    >
+        select *
+        from todo
+        where delete_yn = #{deleteYn};
     </select>
+
+
 
 </mapper>

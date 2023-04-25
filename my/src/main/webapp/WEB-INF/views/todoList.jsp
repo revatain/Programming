@@ -33,14 +33,16 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
             />
             <hr />
             <ul id="sortable" class="list-unstyled">
-              <li class="ui-state-default">
-                <div class="checkbox">
-                  <label>
-                    <input onchange="" type="checkbox" value="" />
-                    <span>밥먹기</span>
-                  </label>
-                </div>
-              </li>
+              <c:forEach items="${todoList}" var="todo">
+                <li class="ui-state-default">
+                  <div class="checkbox">
+                    <label>
+                      <input onchange="" type="checkbox" value="" />
+                      <span>${todo.content}</span>
+                    </label>
+                  </div>
+                </li>
+              </c:forEach>
             </ul>
             <div class="todo-footer">
               <strong>
