@@ -38,8 +38,8 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                   <li class="ui-state-default">
                     <div class="checkbox">
                       <label>
-                        <input onchange="" type="checkbox" value=""/>
-                        <span class="count-todos">${todo.content}</span>
+                        <input onchange="" type="checkbox" value="" />
+                        <span>${todo.content}</span>
                       </label>
                     </div>
                   </li>
@@ -58,7 +58,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
           <div class="todolist">
             <h1>Already DONE</h1>
             <ul id="done-items" class="list-unstyled">
-              <c:foreach items="${todoList}" var="todo">
+              <c:forEach items="${todoList}" var="todo">
                 <c:if test="${todo.doneYn eq 'Y'.charAt(0)}">
                   <li>
                     <div class="checkbox">
@@ -68,11 +68,11 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                           class="remove-item"
                           type="checkbox"
                           value=""
-                       />
-                       <span>${todo.content}</span>
+                        />
+                        <span>${todo.content}</span>
                       </label>
                       <button
-                       onclick=""
+                        onclick=""
                         class="remove-item btn btn-default btn-xs pull-right"
                       >
                         <span class="glyphicon glyphicon-remove"></span>
@@ -80,7 +80,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                     </div>
                   </li>
                 </c:if>
-              </c:foreach>
+              </c:forEach>
             </ul>
           </div>
         </div>

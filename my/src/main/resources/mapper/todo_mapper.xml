@@ -24,16 +24,16 @@
     </select>
 
     <insert id="insert" parameterType="com.example.my.todo.entity.TodoEntity">
-    insert into todo(content, done_yn, delete_yn, create_date)
-    values(#{content}, #{doneYn}, #{deleteYn}, #{createDate});
+        insert into todo(content, done_yn, delete_yn, create_date)
+        values(#{content}, #{doneYn}, #{deleteYn}, #{createDate});
     </insert>
 
     <update id="update" parameterType="com.example.my.todo.entity.TodoEntity">
         update todo
         set done_yn = #{doneYn},
-        delete_yn = #{deleteYn},
-        update_date = #{updateDate},
-        delete_date = #{deleteDate}
+            delete_yn = #{deleteYn},
+            update_date = #{updateDate},
+            delete_date = #{deleteDate}
         where idx = #{idx};
     </update>
 </mapper>

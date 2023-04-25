@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 public class TodoControllerApiV1 {
-
+    
     private final TodoService todoService;
 
     @GetMapping("/api/v1/insert")
@@ -28,5 +28,4 @@ public class TodoControllerApiV1 {
     public void delete(@RequestParam Integer idx) {
         todoService.delete(idx);
     }
-    
 }

@@ -24,9 +24,13 @@ public class TodoService {
     }
 
     public void insert(String content) {
-        TodoEntity todoEntity = TodoEntity.builder().content(content).doneYn('N').deleteYn('N').createDate(LocalDateTime.now()).build();
+        TodoEntity todoEntity = TodoEntity.builder()
+            .content(content)
+            .doneYn('N')
+            .deleteYn('N')
+            .createDate(LocalDateTime.now())
+            .build();
         todoRepository.insert(todoEntity);
-        
     }
 
     public void update(Integer idx) {
@@ -38,7 +42,9 @@ public class TodoService {
             todoEntity.setDoneYn('N');
         }
         todoEntity.setUpdateDate(LocalDateTime.now());
+
         todoRepository.update(todoEntity);
+
     }
 
     public void delete(Integer idx) {
@@ -50,5 +56,6 @@ public class TodoService {
         todoRepository.update(todoEntity);
         
     }
+
 
 }
