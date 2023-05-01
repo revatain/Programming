@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.my.common.ResDTO;
-import com.example.my.todo.service.TodoServiceApiV2;
+import com.example.my.todo.service.TodoServiceApiV1;
 
 import lombok.RequiredArgsConstructor;
 
@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/v1/todo")
 public class TodoControllerApiV1 {
     
-    private final TodoServiceApiV2 todoServiceAp1V1;
+    private final TodoServiceApiV1 todoServiceAp1V1;
     @GetMapping
     public ResDTO<?> select() {
         return todoServiceAp1V1.findByDeleteYn('N');
