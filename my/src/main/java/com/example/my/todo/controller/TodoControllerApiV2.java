@@ -16,27 +16,27 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/todo")
-public class TodoControllerApiV1 {
+@RequestMapping("/api/v2/todo")
+public class TodoControllerApiV2 {
     
-    private final TodoServiceApiV2 todoServiceAp1V1;
+    private final TodoServiceApiV2 todoServiceAp1V2;
     @GetMapping
     public ResDTO<?> select() {
-        return todoServiceAp1V1.findByDeleteYn('N');
+        return todoServiceAp1V2.findByDeleteYn('N');
     }
 
     @PostMapping
-    public ResDTO<?> insert(@PathVariable String content) {
-       return todoServiceAp1V1.insert(content);
+    public ResDTO<?> insert(@RequestParam String content) {
+       return todoServiceAp1V2.insert(content);
     }
 
-    @PutMapping
-    public ResDTO<?> update(@RequestParam Integer idx) {
-       return todoServiceAp1V1.update(idx);
+    @PutMapping("/{idx}")
+    public ResDTO<?> update(@PathVariable Integer idx) {
+       return todoServiceAp1V2.update(idx);
     }
 
-    @DeleteMapping
-    public ResDTO<?> delete(@RequestParam Integer idx) {
-        return todoServiceAp1V1.delete(idx);
+    @DeleteMapping("/{idx}")
+    public ResDTO<?> delete(@PathVariable Integer idx) {
+        return todoServiceAp1V2.delete(idx);
     }
 }
