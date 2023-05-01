@@ -1,7 +1,6 @@
 package com.example.my.todo.service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,8 +18,12 @@ public class TodoServiceApiV1 {
     
     private final TodoRepository todoRepository;
 
-    public List<TodoEntity> findByDeleteYn(Character deleteYn){
-        return todoRepository.findByDeleteYn(deleteYn);
+    public ResDTO<?> findByDeleteYn(Character deleteYn){
+        return ResDTO.builder()
+        .code(0)
+        .message("할 일 조회에 성공하였습니다.")
+        .data(todoRepository.findByDeleteYn(deleteYn))
+        .build();
     }
     @Transactional
     public ResDTO<?> insert(String content) {
