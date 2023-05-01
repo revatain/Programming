@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.my.common.ResDTO;
+import com.example.my.todo.dto.TodoDTO;
 import com.example.my.todo.service.TodoServiceApiV2;
 
 import lombok.RequiredArgsConstructor;
@@ -26,8 +27,8 @@ public class TodoControllerApiV2 {
     }
 
     @PostMapping
-    public ResDTO<?> insert(@RequestParam String content) {
-       return todoServiceAp1V2.insert(content);
+    public ResDTO<?> insert(@RequestBody TodoDTO.ReqBasic reqDto) {
+       return todoServiceAp1V2.insert(reqDto);
     }
 
     @PutMapping("/{idx}")

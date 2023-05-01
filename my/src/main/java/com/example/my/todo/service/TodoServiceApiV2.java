@@ -30,17 +30,12 @@ public class TodoServiceApiV2 {
         .build();
     }
     @Transactional
-    public ResDTO<?> insert(String content) {
-        TodoEntity todoEntity = TodoEntity.builder()
-            .content(content)
-            .doneYn('N')
-            .deleteYn('N')
-            .createDate(LocalDateTime.now())
-            .build();
+    public ResDTO<?> insert(TodoDTO.ReqBasic reqDto) {
+
             
-                todoRepository.insert(todoEntity);
+    todoRepository.insert(reqDto.toEntity());
             
-       return ResDTO.builder()
+    return ResDTO.builder()
        .code(0)
        .message("할 일 추가에 성공하였습니다.")
        .build();

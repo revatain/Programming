@@ -1,5 +1,6 @@
 package com.example.my.todo.dto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,15 +12,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 public class TodoDTO {
-    // @Data
-    // @Builder
-    // @NoArgsConstructor
-    // @AllArgsConstructor
-    // public static class ResBasic {
-    //     private Integer idx;
-    //     private String content;
-    //     private Character doneYn;
-    // }
+
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ReqBasic {
+        private String content;
+
+        public TodoEntity toEntity(){
+            return TodoEntity.builder()
+            .content(content)
+            .doneYn('N')
+            .deleteYn('N')
+            .createDate(LocalDateTime.now())
+            .build();
+        }
+    }
+
     @Data
     @Builder
     @NoArgsConstructor
