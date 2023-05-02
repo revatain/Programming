@@ -36,7 +36,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
               <li class="ui-state-default">
                 <div class="checkbox">
                   <label>
-                    <input onchange="" type="checkbox" value="" />
+                    <input onchange="setDone(${todo.idx})" type="checkbox" />
                     <span>밥먹기</span>
                   </label>
                 </div>
@@ -85,9 +85,43 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     const contentInput = document.getElementById("content");
     contentInput.addEventListener("keyup", (e) => {
       if(e.keyCode === 13) {
-        alert(contentInput.value);
+        if(contentInput.value === ""){
+          alert("내용을 입력해 주세요");
+          contentInput.focus();
+          return;
+        }
+        // 객체 생성
+        const data = {
+          content: contentInput.value,
+        };
+        fetch("/api/v2/todo", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8"
+          },
+          body: JSON.stringify(data),
+        }).then((res) => res.json()).then((result) => {
+          // location.href = "/todoList";
+          location.reload();
+        }).catch((error) => {
+          alert("에러가 발생했습니다.");
+        });
       }
-      alert(e.keyCode);
     });
+    const setDone = (idx) => {
+      fetch("/api/v2/todo") + idx, {
+        method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8"
+          },
+          body: JSON.stringify(data),
+        }.then((res) => res.json()).then((result) => {
+          alert(result.message);
+          location.reload();
+        }).catch((error) => {
+          alert("에러가 발생했습니다.");
+        });
+      };
+      
   </script>
 </html>
