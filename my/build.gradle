@@ -36,6 +36,9 @@ dependencies {
 	// 코드 작동 테스트 라이브러리
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.15'
+
+
 	// JSP 관련 라이브러리 - main 아래 webapp 폴더 안의 JSP만 인식한다.
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation 'javax.servlet:jstl'

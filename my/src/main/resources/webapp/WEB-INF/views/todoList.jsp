@@ -81,5 +81,13 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   </body>
   <script>
     console.log("스타일 참고", "https://bootsnipp.com/snippets/QbN51");
+    // 할일 입력하면 데이터 추가
+    const contentInput = document.getElementById("content");
+    contentInput.addEventListener("keyup", (e) => {
+      if(e.keyCode === 13) {
+        alert(contentInput.value);
+      }
+      alert(e.keyCode);
+    });
   </script>
 </html>
