@@ -81,22 +81,26 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   </body>
   <script>
     console.log("스타일 참고", "https://bootsnipp.com/snippets/QbN51");
-    // console.log(document.getElementById("content"));
-    // console.log(document.querySelector("#content"));
+
     const init = () => {
+
       $.ajax({
         url: "/api/v2/todo",
-        type: "GET",       
-      }).done((result) => {
-        console.log(result);
-        const todoList = result.data.todoList.filter((todo) => todo.doneYn == "N");
-        const todoCount = todoList.length;
-        const doneList = result.data.todoList.filter((todo) => todo.doneYn == "Y");
-        $("#sortable").empty();
-        for (const todo of todoList) {
-          $("#sortable").append(
-          `
-          <li class="ui-state-default">
+        type: "GET"
+      })
+        .done((result) => {
+          console.log(result);
+          // 안한 할 일 / 안한 할 일 개수 / 이미 한 일
+          const todoList = result.data.todoList.filter((todo) => todo.doneYn == "N");
+          const todoCount = todoList.length;
+          const doneList = result.data.todoList.filter((todo) => todo.doneYn == "Y");
+
+          $("#sortable").empty();
+
+          for (const todo of todoList) {
+            $("#sortable").append(
+              `
+              <li class="ui-state-default">
                 <div class="checkbox">
                   <label>
                     <input onchange="setDone(` + todo.idx + `)" type="checkbox" value="" />
@@ -104,17 +108,20 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                   </label>
                 </div>
               </li>
-          `
-        );
-        $("#content").val("");         
-        }
-        $("#countTodos").text(todoCount);
-        $("#done-items").empty();
+              `
+            );
+          }
 
-        for (const todo of doneList) {
-          $("#done-items").append(
-            `
-            <li>
+          $("#countTodos").text(todoCount);
+
+          // doneList를 이용해서 already Done에 내용 추가해보기
+
+          $("#done-items").empty();
+
+          for (const todo of doneList) {
+            $("#done-items").append(
+              `
+              <li>
                 <div class="checkbox">
                   <label>
                     <input
@@ -133,26 +140,32 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                   </button>
                 </div>
               </li>
-            `
-          )
-          
-        }
-      }).fail((error) => {
-        alert("에러가 발생했습니다.");
-      });
+              `
+            );            
+          }
+        })
+        .fail((error) => {
+          alert("에러가 발생했습니다.");
+        });
+
     }
 
     init();
 
+
+    // console.log(document.getElementById("content"));
+    // console.log(document.querySelector("#content"));
+    // $() -> jquery 객체를 리턴한다.
     $("#content").on("keyup", (e) => {
-      if(e.keyCode === 13){
-        if($("#content").val() === ""){
+      if (e.keyCode === 13) {
+        if ($("#content").val() == "") {
           alert("내용을 입력해 주세요.");
           $("#content").focus();
           return;
         }
+
         const data = {
-          content: $("#content").val()
+          content: $("#content").val(),
         };
 
         $.ajax({
@@ -160,34 +173,48 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
           type: "POST",
           contentType: "application/json;charset=utf-8",
           data: JSON.stringify(data),
-        }).done((result)=> {
-          // console.log(result);
-          init();
-          $("#content").val("");
-        }).fail((error)=> {
-          alert("에러가 발생했습니다.");
-        });
+        })
+          .done((result) => {
+            // console.log(result);
+            init();
+            $("#content").val("");
+          })
+          .fail((error) => {
+            alert("에러가 발생했습니다.");
+          });
       }
     });
+
     const setDone = (idx) => {
+
       $.ajax({
         url: "/api/v2/todo/" + idx,
         type: "PUT"
-      }).done((result) => {
-        init();
-      }).fail((error) => {
-        alert("에러가 발생했습니다.");
       })
+        .done((result) => {
+          init();
+        })
+        .fail((error) => {
+          alert("에러가 발생했습니다.");
+        });
+
     }
+
     const setDelete = (idx) => {
+
       $.ajax({
         url: "/api/v2/todo/" + idx,
         type: "DELETE"
-      }).done((result) => {
-        init();
-      }).fail((error) => {
-        alert("에러가 발생했습니다.");
       })
-    }
+        .done((result) => {
+          init();
+        })
+        .fail((error) => {
+          alert("에러가 발생했습니다.");
+        });
+
+      }
+
+
   </script>
 </html>

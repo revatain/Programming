@@ -38,7 +38,10 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                   <li class="ui-state-default">
                     <div class="checkbox">
                       <label>
-                        <input onchange="setDone(${todo.idx})" type="checkbox" />
+                        <input
+                          onchange="setDone(${todo.idx})"
+                          type="checkbox"
+                        />
                         <span>${todo.content}</span>
                       </label>
                     </div>
@@ -139,20 +142,19 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     };
 
     const setDelete = (idx) => {
-
-      fetch("/api/v2/todo/" + idx,{
+      fetch("/api/v2/todo/" + idx, {
         method: "DELETE",
-        headers:{
-          "Content-Type": "application/json;charset=utf-8"
-        }
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
       })
-        .then(res => res.json())
-        .then((result)=> {
+        .then((res) => res.json())
+        .then((result) => {
           location.reload();
         })
-        .catch((error)=>{
+        .catch((error) => {
           alert("에러가 발생했습니다.");
         });
-    }
+    };
   </script>
 </html>
