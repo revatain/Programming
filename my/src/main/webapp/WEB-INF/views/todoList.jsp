@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <%@ page
+language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,7 +15,7 @@
       rel="stylesheet"
       id="bootstrap-css"
     />
-    <link rel="stylesheet" href="/todoList.css" />
+    <link rel="stylesheet" href="css/todoList.css" />
     <title>Title</title>
   </head>
   <body>

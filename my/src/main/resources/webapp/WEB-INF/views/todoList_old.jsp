@@ -128,6 +128,6 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
           "Content-Type": "application/json;charset=utf-8"
         }
       });
-      
+    }     
   </script>
 </html>
