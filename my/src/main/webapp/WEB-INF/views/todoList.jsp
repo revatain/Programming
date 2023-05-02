@@ -1,5 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <%@ page
-language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,7 +13,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
       rel="stylesheet"
       id="bootstrap-css"
     />
-    <link rel="stylesheet" href="css/todoList.css" />
+    <link rel="stylesheet" href="/todoList.css" />
     <title>Title</title>
   </head>
   <body>
@@ -44,7 +42,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
             </ul>
             <div class="todo-footer">
               <strong>
-                <span id="countTodos" class="count-todos">1</span>
+                <span class="count-todos">1</span>
               </strong>
               항목 남았음
             </div>
@@ -81,113 +79,5 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   </body>
   <script>
     console.log("스타일 참고", "https://bootsnipp.com/snippets/QbN51");
-    // console.log(document.getElementById("content"));
-    // console.log(document.querySelector("#content"));
-    const init = () => {
-      $.ajax({
-        url: "/api/v2/todo",
-        type: "GET",       
-      }).done((result) => {
-        console.log(result);
-        const todoList = result.data.todoList.filter((todo) => todo.doneYn == "N");
-        const todoCount = todoList.length;
-        const doneList = result.data.todoList.filter((todo) => todo.doneYn == "Y");
-        $("#sortable").empty();
-        for (const todo of todoList) {
-          $("#sortable").append(
-          `
-          <li class="ui-state-default">
-                <div class="checkbox">
-                  <label>
-                    <input onchange="setDone(` + todo.idx + `)" type="checkbox" value="" />
-                    <span>` + todo.content + `</span>
-                  </label>
-                </div>
-              </li>
-          `
-        );
-        $("#content").val("");         
-        }
-        $("#countTodos").text(todoCount);
-        $("#done-items").empty();
-
-        for (const todo of doneList) {
-          $("#done-items").append(
-            `
-            <li>
-                <div class="checkbox">
-                  <label>
-                    <input
-                      onchange="setDone(` + todo.idx + `)"
-                      class="remove-item"
-                      type="checkbox"
-                      value=""
-                    />
-                    <span>` + todo.content + `</span>
-                  </label>
-                  <button
-                    onclick="setDelete(` + todo.idx + `)"
-                    class="remove-item btn btn-default btn-xs pull-right"
-                  >
-                    <span class="glyphicon glyphicon-remove"></span>
-                  </button>
-                </div>
-              </li>
-            `
-          )
-          
-        }
-      }).fail((error) => {
-        alert("에러가 발생했습니다.");
-      });
-    }
-
-    init();
-
-    $("#content").on("keyup", (e) => {
-      if(e.keyCode === 13){
-        if($("#content").val() === ""){
-          alert("내용을 입력해 주세요.");
-          $("#content").focus();
-          return;
-        }
-        const data = {
-          content: $("#content").val()
-        };
-
-        $.ajax({
-          url: "/api/v2/todo",
-          type: "POST",
-          contentType: "application/json;charset=utf-8",
-          data: JSON.stringify(data),
-        }).done((result)=> {
-          // console.log(result);
-          init();
-          $("#content").val("");
-        }).fail((error)=> {
-          alert("에러가 발생했습니다.");
-        });
-      }
-    });
-    const setDone = (idx) => {
-      $.ajax({
-        url: "/api/v2/todo/" + idx,
-        type: "PUT"
-      }).done((result) => {
-        init();
-      }).fail((error) => {
-        alert("에러가 발생했습니다.");
-      })
-    }
-    const setDelete = (idx) => {
-      $.ajax({
-        url: "/api/v2/todo/" + idx,
-        type: "DELETE"
-      }).done((result) => {
-        init();
-      }).fail((error) => {
-        alert("에러가 발생했습니다.");
-      })
-    }
   </script>
 </html>
