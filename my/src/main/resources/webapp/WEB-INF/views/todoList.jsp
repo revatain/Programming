@@ -66,7 +66,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                     <span>잠자기</span>
                   </label>
                   <button
-                    onclick=""
+                    onclick="${}"
                     class="remove-item btn btn-default btn-xs pull-right"
                   >
                     <span class="glyphicon glyphicon-remove"></span>
@@ -94,7 +94,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
         const data = {
           content: contentInput.value,
         };
-        fetch("/api/v2/todo", {
+        fetch("/api/v2/todo/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json;charset=utf-8"
@@ -116,12 +116,18 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
           },
           body: JSON.stringify(data),
         }.then((res) => res.json()).then((result) => {
-          alert(result.message);
           location.reload();
         }).catch((error) => {
           alert("에러가 발생했습니다.");
         });
       };
+    const setDelete = (idx) => {
+      fetch("/api/v2/todo" + idx, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8"
+        }
+      });
       
   </script>
 </html>

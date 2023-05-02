@@ -8,10 +8,15 @@ import io.swagger.v3.oas.models.info.Info;
 
 @Configuration
 public class SwaggerConfig {
+
     @Bean
     public OpenAPI openAPI() {
-        Info info = new Info().title("TODO API").version("0.0.1").description("Todo List api");
-        return new OpenAPI().info(info);
+        Info info = new Info()
+                .title("TODO API")
+                .version("0.0.1")
+                .description("투두리스트 api");
 
+        return new OpenAPI().info(info);
     }
+
 }

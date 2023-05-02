@@ -16,13 +16,8 @@ import lombok.RequiredArgsConstructor;
 public class TodoService {
     private final TodoRepository todoRepository;
 
-    public TodoEntity findByIdx(Integer idx){
-        return todoRepository.findByIdx(idx);
-    }
-
     public List<TodoEntity> findByDeleteYn(Character deleteYn){
         return todoRepository.findByDeleteYn(deleteYn);
     }
 
-   
 }

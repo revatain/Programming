@@ -17,34 +17,36 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class TodoServiceApiV2 {
-    
+
     private final TodoRepository todoRepository;
 
-    public ResDTO<?> findByDeleteYn(Character deleteYn){
+    public ResDTO<?> findByDeleteYn(Character deleteYn) {
+
         List<TodoEntity> todoEntityList = todoRepository.findByDeleteYn(deleteYn);
 
         return ResDTO.builder()
-        .code(0)
-        .message("할 일 조회에 성공하였습니다.")
-        .data(TodoDTO.ResBasic.fromEntityList(todoEntityList))
-        .build();
+                .code(0)
+                .message("할 일 조회에 성공하였습니다.")
+                .data(TodoDTO.ResBasic.fromEntityList(todoEntityList))
+                .build();
     }
+
     @Transactional
     public ResDTO<?> insert(TodoDTO.ReqBasic reqDto) {
 
-            
-    todoRepository.insert(reqDto.toEntity());
-            
-    return ResDTO.builder()
-       .code(0)
-       .message("할 일 추가에 성공하였습니다.")
-       .build();
+        todoRepository.insert(reqDto.toEntity());
+
+        return ResDTO.builder()
+                .code(0)
+                .message("할 일 추가에 성공하였습니다.")
+                .build();
     }
+
     @Transactional
     public ResDTO<?> update(Integer idx) {
         TodoEntity todoEntity = todoRepository.findByIdx(idx);
 
-        if(todoEntity.getDoneYn().equals('N')){
+        if (todoEntity.getDoneYn().equals('N')) {
             todoEntity.setDoneYn('Y');
         } else {
             todoEntity.setDoneYn('N');
@@ -52,11 +54,13 @@ public class TodoServiceApiV2 {
         todoEntity.setUpdateDate(LocalDateTime.now());
 
         todoRepository.update(todoEntity);
+
         return ResDTO.builder()
-        .code(0)
-        .message(todoEntity.getIdx()+ "번 할 일(" + todoEntity.getContent() + ") 수정에 성공하였습니다.")
-        .build();
+                .code(0)
+                .message(todoEntity.getIdx() + "번 할 일(" + todoEntity.getContent() + ") 수정에 성공하였습니다.")
+                .build();
     }
+
     @Transactional
     public ResDTO<?> delete(Integer idx) {
 
@@ -65,11 +69,13 @@ public class TodoServiceApiV2 {
         todoEntity.setDeleteDate(LocalDateTime.now());
 
         todoRepository.update(todoEntity);
-        return ResDTO.builder()
-        .code(0)
-        .message(todoEntity.getIdx()+ "번 할 일(" + todoEntity.getContent() + ") 삭제에 성공하였습니다.")
-        .build();
-    }
 
+        // 리턴값 수정
+        // 1번 할 일(잠자기) 삭제에 성공하였습니다.
+        return ResDTO.builder()
+            .code(0)
+            .message(todoEntity.getIdx() + "번 할 일(" + todoEntity.getContent() + ") 삭제에 성공하였습니다.")
+            .build();
+    }
 
 }

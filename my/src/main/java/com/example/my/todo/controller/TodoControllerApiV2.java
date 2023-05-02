@@ -20,24 +20,25 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/v2/todo")
 public class TodoControllerApiV2 {
     
-    private final TodoServiceApiV2 todoServiceAp1V2;
+    private final TodoServiceApiV2 todoServiceApiV2;
+
     @GetMapping
     public ResDTO<?> select() {
-        return todoServiceAp1V2.findByDeleteYn('N');
+        return todoServiceApiV2.findByDeleteYn('N');
     }
 
     @PostMapping
     public ResDTO<?> insert(@RequestBody TodoDTO.ReqBasic reqDto) {
-       return todoServiceAp1V2.insert(reqDto);
+        return todoServiceApiV2.insert(reqDto);
     }
 
     @PutMapping("/{idx}")
     public ResDTO<?> update(@PathVariable Integer idx) {
-       return todoServiceAp1V2.update(idx);
+        return todoServiceApiV2.update(idx);
     }
 
     @DeleteMapping("/{idx}")
     public ResDTO<?> delete(@PathVariable Integer idx) {
-        return todoServiceAp1V2.delete(idx);
+        return todoServiceApiV2.delete(idx);
     }
 }

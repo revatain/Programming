@@ -20,6 +20,4 @@ public interface TodoRepository {
 
     Integer update(TodoEntity todoEntity);
 
-
-
 }

@@ -27,6 +27,7 @@ mybatis:
   mapper-locations: classpath:mapper/*_mapper.xml
   configuration:
     map-underscore-to-camel-case: true
+
 springdoc:
   default-consumes-media-type: application/json;charset=UTF-8
   default-produces-media-type: application/json;charset=UTF-8

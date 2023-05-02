@@ -38,7 +38,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                   <li class="ui-state-default">
                     <div class="checkbox">
                       <label>
-                        <input onchange="" type="checkbox" value="" />
+                        <input onchange="setDone(${todo.idx})" type="checkbox" />
                         <span>${todo.content}</span>
                       </label>
                     </div>
@@ -64,15 +64,14 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                     <div class="checkbox">
                       <label>
                         <input
-                          onchange=""
+                          onchange="setDone(${todo.idx})"
                           class="remove-item"
                           type="checkbox"
-                          value=""
                         />
                         <span>${todo.content}</span>
                       </label>
                       <button
-                        onclick=""
+                        onclick="setDelete(${todo.idx})"
                         class="remove-item btn btn-default btn-xs pull-right"
                       >
                         <span class="glyphicon glyphicon-remove"></span>
@@ -89,5 +88,72 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   </body>
   <script>
     console.log("스타일 참고", "https://bootsnipp.com/snippets/QbN51");
+
+    // 할일 입력하고 엔터치면 등록
+    const contentInput = document.getElementById("content");
+    contentInput.addEventListener("keyup", (e) => {
+      if (e.keyCode === 13) {
+        // 내용이 없으면 함수 종료
+        if (contentInput.value === "") {
+          alert("내용을 입력해 주세요.");
+          contentInput.focus();
+          return;
+        }
+
+        // ReqBasic 객체와 동일한 형태로 객체 생성
+        const data = {
+          content: contentInput.value,
+        };
+
+        fetch("/api/v2/todo", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            location.reload();
+          })
+          .catch((error) => {
+            alert("에러가 발생했습니다.");
+          });
+      }
+    });
+
+    const setDone = (idx) => {
+      fetch("/api/v2/todo/" + idx, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          location.reload();
+        })
+        .catch((error) => {
+          alert("에러가 발생했습니다.");
+        });
+    };
+
+    const setDelete = (idx) => {
+
+      fetch("/api/v2/todo/" + idx,{
+        method: "DELETE",
+        headers:{
+          "Content-Type": "application/json;charset=utf-8"
+        }
+      })
+        .then(res => res.json())
+        .then((result)=> {
+          location.reload();
+        })
+        .catch((error)=>{
+          alert("에러가 발생했습니다.");
+        });
+
+    }
   </script>
 </html>

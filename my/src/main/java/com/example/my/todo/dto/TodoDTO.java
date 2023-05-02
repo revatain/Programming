@@ -30,6 +30,7 @@ public class TodoDTO {
         }
     }
 
+
     @Data
     @Builder
     @NoArgsConstructor
@@ -37,7 +38,7 @@ public class TodoDTO {
     public static class ResBasic {
         private List<Todo> todoList;
 
-        // 해당 내부에서만 사용하는 클래스
+        // 해당 static class 내부에서만 사용하는 클래스
         @Data
         @Builder
         @NoArgsConstructor
@@ -48,15 +49,17 @@ public class TodoDTO {
             Character doneYn;
         }
 
-        // 엔티티에서 DTO로 변환
+        // 엔티티에서 DTO로 변환, 팩토리 메소드
         public static ResBasic fromEntityList(List<TodoEntity> todoEntityList) {
+            // map 기존 리스트 데이터를 다른 타입의 리스트 데이터로 변경
             List<Todo> todoList = todoEntityList.stream().map(todoEntity -> {
                 return Todo.builder()
-                .idx(todoEntity.getIdx())
-                .content(todoEntity.getContent())
-                .doneYn(todoEntity.getDoneYn())
-                .build();
+                    .idx(todoEntity.getIdx())
+                    .content(todoEntity.getContent())
+                    .doneYn(todoEntity.getDoneYn())
+                    .build();
             }).collect(Collectors.toList());
+
             return new ResBasic(todoList);
         }
     }
