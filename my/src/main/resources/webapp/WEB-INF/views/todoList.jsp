@@ -58,7 +58,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
                 <div class="checkbox">
                   <label>
                     <input
-                      onchange=""
+                      onchange="setDone(${todo.idx})"
                       class="remove-item"
                       type="checkbox"
                       value=""
