@@ -1,0 +1,5 @@
+2023-05-08 12:40:56.412  WARN 8624 --- [http-nio-6060-exec-10] c.e.m.t.controller.TodoControllerApiV2   : 1번 할 일 삭제를 요청합니다.
+2023-05-08 12:40:56.796  WARN 8624 --- [http-nio-6060-exec-2] c.e.m.t.controller.TodoControllerApiV2   : 2번 할 일 삭제를 요청합니다.
+2023-05-08 12:40:56.957  WARN 8624 --- [http-nio-6060-exec-4] c.e.m.t.controller.TodoControllerApiV2   : 3번 할 일 삭제를 요청합니다.
+2023-05-08 12:40:57.125  WARN 8624 --- [http-nio-6060-exec-6] c.e.m.t.controller.TodoControllerApiV2   : 4번 할 일 삭제를 요청합니다.
+2023-05-08 12:40:57.285  WARN 8624 --- [http-nio-6060-exec-8] c.e.m.t.controller.TodoControllerApiV2   : 5번 할 일 삭제를 요청합니다.
