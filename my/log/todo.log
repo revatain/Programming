@@ -8841,3 +8841,24 @@ com.example.my.common.EntityNotFoundException: null
 2023-05-08 16:41:32.873  WARN 1924 --- [http-nio-6060-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
 2023-05-08 16:41:40.447  WARN 1924 --- [http-nio-6060-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
 2023-05-08 16:41:44.327  WARN 1924 --- [http-nio-6060-exec-2] c.e.m.t.controller.TodoControllerApiV2   : 100번 할 일 삭제를 요청합니다.
+2023-05-08 16:43:47.259  INFO 1924 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 23 class path changes (0 additions, 0 deletions, 23 modifications)
+2023-05-08 16:43:47.279  INFO 1924 --- [Thread-6] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-08 16:43:47.283  INFO 1924 --- [Thread-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-08 16:43:47.510  WARN 1924 --- [Thread-6] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-214]
+2023-05-08 16:43:47.514  INFO 1924 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-08 16:43:47.517  INFO 1924 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-08 16:43:47.751  INFO 1924 --- [restartedMain] com.example.my.MyApplication             : Starting MyApplication using Java 17.0.6 on DESKTOP-FFS5E59 with PID 1924 (C:\programming\my\bin\main started by dita810 in C:\programming\my)
+2023-05-08 16:43:47.754  INFO 1924 --- [restartedMain] com.example.my.MyApplication             : No active profile set, falling back to 1 default profile: "default"
+2023-05-08 16:43:48.810  INFO 1924 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6060 (http)
+2023-05-08 16:43:48.817  INFO 1924 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-08 16:43:48.826  INFO 1924 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.74]
+2023-05-08 16:43:49.019  INFO 1924 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-05-08 16:43:49.027  INFO 1924 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-08 16:43:49.028  INFO 1924 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1262 ms
+2023-05-08 16:43:49.047  INFO 1924 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-05-08 16:43:49.051  INFO 1924 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-05-08 16:43:49.052  INFO 1924 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2023-05-08 16:43:50.447  INFO 1924 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-08 16:43:50.474  INFO 1924 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6060 (http) with context path ''
+2023-05-08 16:43:50.479  INFO 1924 --- [restartedMain] com.example.my.MyApplication             : Started MyApplication in 2.895 seconds (JVM running for 162.054)
+2023-05-08 16:43:50.484  INFO 1924 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
