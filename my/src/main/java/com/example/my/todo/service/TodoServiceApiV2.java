@@ -3,6 +3,7 @@ package com.example.my.todo.service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
