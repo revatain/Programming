@@ -33,4 +33,7 @@ public class CommonExceptionHandler {
         .build(), HttpStatus.BAD_REQUEST);
     }
     
+    public HttpEntity<?> handleEntityNotFoundException(Exception exception) {
+        return null;
+    }
 }
