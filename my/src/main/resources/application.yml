@@ -42,4 +42,6 @@ logging:
     # 로그를 남길 데이터의 위험도
     # TRACE < DEBUG < INFO < WARN < ERROR < FATAL
   level:
-    root: warn
+    root: INFO
+  charset:
+    file: UTF-8
