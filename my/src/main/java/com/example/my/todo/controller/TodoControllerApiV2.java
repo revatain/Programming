@@ -1,5 +1,6 @@
 package com.example.my.todo.controller;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +29,7 @@ public class TodoControllerApiV2 {
     }
 
     @PostMapping
-    public ResDTO<?> insert(@RequestBody TodoDTO.ReqBasic reqDto) {
+    public ResDTO<?> insert(@Validated @RequestBody TodoDTO.ReqBasic reqDto) {
         return todoServiceApiV2.insert(reqDto);
     }
 

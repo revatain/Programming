@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.constraints.NotBlank;
+
 import com.example.my.todo.entity.TodoEntity;
 
 import lombok.AllArgsConstructor;
@@ -18,6 +20,8 @@ public class TodoDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ReqBasic {
+
+        @NotBlank(message = "내용을 입력해 주세요.")
         private String content;
 
         public TodoEntity toEntity(){
