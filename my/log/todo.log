@@ -8840,3 +8840,4 @@ com.example.my.common.EntityNotFoundException: null
 
 2023-05-08 16:41:32.873  WARN 1924 --- [http-nio-6060-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
 2023-05-08 16:41:40.447  WARN 1924 --- [http-nio-6060-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2023-05-08 16:41:44.327  WARN 1924 --- [http-nio-6060-exec-2] c.e.m.t.controller.TodoControllerApiV2   : 100번 할 일 삭제를 요청합니다.
