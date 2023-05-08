@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.my.common.EntityNotFoundException;
 import com.example.my.common.ResDTO;
 import com.example.my.todo.dto.TodoDTO;
 import com.example.my.todo.entity.TodoEntity;
@@ -48,6 +49,10 @@ public class TodoServiceApiV2 {
     @Transactional
     public HttpEntity<?> update(Integer idx) {
         TodoEntity todoEntity = todoRepository.findByIdx(idx);
+
+        if (todoEntity == null) {
+            throw new EntityNotFoundException();
+        }
 
         if (todoEntity.getDoneYn().equals('N')) {
             todoEntity.setDoneYn('Y');

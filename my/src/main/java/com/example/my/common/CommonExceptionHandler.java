@@ -34,6 +34,16 @@ public class CommonExceptionHandler {
     }
     
     public HttpEntity<?> handleEntityNotFoundException(Exception exception) {
-        return null;
+        String message = "잘못된 요청입니다.";
+        if(exception.getMessage() != null && !exception.getMessage().equals("")){
+            message = exception.getMessage();
+        }
+        return new ResponseEntity<>(
+            ResDTO.builder()
+                .code(-1)
+                .message(exception.getMessage())
+                .build(),
+                HttpStatus.BAD_REQUEST);
+        
     }
 }
