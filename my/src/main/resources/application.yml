@@ -3,6 +3,10 @@ server:
 
 # JSP 경로 설정
 spring:
+  security:
+    user:
+      name: test
+      password: 123
   mvc:
     view:
       prefix: /WEB-INF/views/
