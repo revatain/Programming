@@ -1,4 +1,4 @@
-package com.example.my.todo.controller;
+package com.example.my.module.todo.controller;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.validation.annotation.Validated;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.my.todo.dto.TodoDTO;
-import com.example.my.todo.service.TodoServiceApiV2;
+import com.example.my.module.todo.dto.TodoDTO;
+import com.example.my.module.todo.service.TodoServiceApiV2;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

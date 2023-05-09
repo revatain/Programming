@@ -1,4 +1,4 @@
-package com.example.my.todo.dto;
+package com.example.my.module.todo.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotBlank;
 
-import com.example.my.todo.entity.TodoEntity;
+import com.example.my.module.todo.entity.TodoEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

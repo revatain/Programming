@@ -1,4 +1,4 @@
-package com.example.my.todo.repository;
+package com.example.my.module.todo.repository;
 
 
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import com.example.my.todo.entity.TodoEntity;
+import com.example.my.module.todo.entity.TodoEntity;
 
 @Repository
 @Mapper

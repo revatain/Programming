@@ -16,7 +16,7 @@
     <select 
         id="findByDeleteYn" 
         parameterType="java.lang.Character"
-        resultType="com.example.my.todo.entity.TodoEntity"
+        resultType="com.example.my.module.todo.entity.TodoEntity"
     >
         select *
         from todo
