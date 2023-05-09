@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.my.common.EntityNotFoundException;
 import com.example.my.common.ResDTO;
 import com.example.my.todo.dto.TodoDTO;
 import com.example.my.todo.entity.TodoEntity;
