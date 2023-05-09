@@ -2004,3 +2004,40 @@ Caused by: java.lang.ClassNotFoundException: Cannot find class: com.example.my.m
 	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:124) ~[mybatis-3.5.11.jar:3.5.11]
 	... 98 common frames omitted
 
+2023-05-09 15:49:28.744  WARN 11924 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 98876149-a6f6-4088-a9cc-f13963c1a8bc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-09 15:54:56.391  WARN 10116 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ba016d39-3b77-4a7b-9859-d5c140522766
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-09 15:55:30.173  WARN 160 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 268da84e-6277-465e-93a7-39a66a1a9ada
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-09 15:56:45.615  WARN 10652 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7d604536-85e0-4186-a9e2-9baa4bcada26
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-09 15:57:36.466  WARN 680 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ffc383a4-32b1-4b27-a43c-a4aef517936f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-09 15:59:58.243  WARN 14232 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 61564ec8-cd1a-44d8-9e4d-2ce4d37084ba
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-09 16:13:53.689  WARN 14232 --- [Thread-6] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-214]
