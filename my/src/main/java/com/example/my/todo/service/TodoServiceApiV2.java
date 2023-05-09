@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.my.common.EntityNotFoundException;
 import com.example.my.common.ResDTO;
 import com.example.my.todo.dto.TodoDTO;
 import com.example.my.todo.entity.TodoEntity;
@@ -27,11 +28,13 @@ public class TodoServiceApiV2 {
 
         List<TodoEntity> todoEntityList = todoRepository.findByDeleteYn(deleteYn);
 
-        return new ResponseEntity<>(ResDTO.builder()
-        .code(0)
-        .message("할 일 조회에 성공하였습니다.")
-        .data(TodoDTO.ResBasic.fromEntityList(todoEntityList))
-        .build(), HttpStatus.OK);
+        return new ResponseEntity<>(
+                ResDTO.builder()
+                        .code(0)
+                        .message("할 일 조회에 성공하였습니다.")
+                        .data(TodoDTO.ResBasic.fromEntityList(todoEntityList))
+                        .build(),
+                HttpStatus.OK);
     }
 
     @Transactional
@@ -39,10 +42,12 @@ public class TodoServiceApiV2 {
 
         todoRepository.insert(reqDto.toEntity());
 
-        return new ResponseEntity<>(ResDTO.builder()
-        .code(0)
-        .message("할 일 추가에 성공하였습니다.")
-        .build(), HttpStatus.OK);
+        return new ResponseEntity<>(
+                ResDTO.builder()
+                        .code(0)
+                        .message("할 일 추가에 성공하였습니다.")
+                        .build(),
+                HttpStatus.OK);
     }
 
     @Transactional
@@ -58,22 +63,20 @@ public class TodoServiceApiV2 {
 
         todoRepository.update(todoEntity);
 
-        return new ResponseEntity<>(ResDTO.builder()
-        .code(0)
-        .message(todoEntity.getIdx() + "번 할 일(" + todoEntity.getContent() + ") 수정에 성공하였습니다.")
-        .build(), HttpStatus.OK);
+        return new ResponseEntity<>(
+                ResDTO.builder()
+                        .code(0)
+                        .message(todoEntity.getIdx() + "번 할 일(" + todoEntity.getContent() + ") 수정에 성공하였습니다.")
+                        .build(),
+                HttpStatus.OK);
     }
 
     @Transactional
     public HttpEntity<?> delete(Integer idx) {
 
         TodoEntity todoEntity = todoRepository.findByIdx(idx);
-        if(todoEntity == null) {
-            return new ResponseEntity<>(ResDTO.builder()
-            .code(-1)
-            .message("해당하는 데이터가 없습니다.")
-            .build(), HttpStatus.BAD_REQUEST);
-        }
+
+
         todoEntity.setDeleteYn('Y');
         todoEntity.setDeleteDate(LocalDateTime.now());
 
@@ -81,10 +84,12 @@ public class TodoServiceApiV2 {
 
         // 리턴값 수정
         // 1번 할 일(잠자기) 삭제에 성공하였습니다.
-        return new ResponseEntity<>(ResDTO.builder()
-        .code(0)
-        .message(todoEntity.getIdx() + "번 할 일(" + todoEntity.getContent() + ") 삭제에 성공하였습니다.")
-        .build(), HttpStatus.OK);
+        return new ResponseEntity<>(
+                ResDTO.builder()
+                        .code(0)
+                        .message(todoEntity.getIdx() + "번 할 일(" + todoEntity.getContent() + ") 삭제에 성공하였습니다.")
+                        .build(),
+                HttpStatus.OK);
     }
 
 }
