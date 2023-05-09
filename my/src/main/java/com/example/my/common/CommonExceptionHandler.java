@@ -10,6 +10,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.example.my.common.DTO.ResDTO;
+
 @RestControllerAdvice
 public class CommonExceptionHandler {
 

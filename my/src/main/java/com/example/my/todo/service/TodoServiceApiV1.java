@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.my.common.ResDTO;
+import com.example.my.common.DTO.ResDTO;
 import com.example.my.todo.entity.TodoEntity;
 import com.example.my.todo.repository.TodoRepository;
 
