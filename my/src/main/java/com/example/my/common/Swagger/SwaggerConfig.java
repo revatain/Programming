@@ -1,4 +1,4 @@
-package com.example.my.common;
+package com.example.my.common.Swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
