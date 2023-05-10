@@ -17,7 +17,7 @@ public interface TodoRepository {
 
     List<TodoEntity> findByDeleteYn(Character deleteYn);
 
-    List<TodoEntity> findByUserIdxAndDeleteYn(@Param("userIdx") Integer useridx, @Param("deleteYn") Character deleteYn);
+    List<TodoEntity> findByUserIdxAndDeleteYn(@Param("userIdx") Integer userIdx, @Param("deleteYn") Character deleteYn);
 
     Integer insert(TodoEntity todoEntity);
 

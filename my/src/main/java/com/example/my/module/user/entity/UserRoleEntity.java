@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserRoleEntity {
     private Integer idx;
-    private Integer useridx;
+    private Integer userIdx;
     private String role;
     private LocalDateTime createDate;
 }

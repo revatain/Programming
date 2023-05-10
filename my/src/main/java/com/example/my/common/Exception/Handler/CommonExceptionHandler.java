@@ -1,4 +1,4 @@
-package com.example.my.common.Exception.Handler;
+package com.example.my.common.exception.handler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.example.my.common.DTO.ResDTO;
-import com.example.my.common.Exception.EntityNotFoundException;
+import com.example.my.common.dto.ResDTO;
+import com.example.my.common.exception.EntityNotFoundException;
 
 @RestControllerAdvice
 public class CommonExceptionHandler {

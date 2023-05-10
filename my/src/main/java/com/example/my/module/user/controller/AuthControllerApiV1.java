@@ -7,13 +7,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.my.module.user.dto.AuthDTO;
+import com.example.my.module.user.service.AuthServiceApiV1;
+
+import lombok.RequiredArgsConstructor;
+
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/auth")
 public class AuthControllerApiV1 {
+    
+    private final AuthServiceApiV1 authServiceApiV1;
+
     @PostMapping("/join")
     public HttpEntity<?> joinProc(@Validated @RequestBody AuthDTO.ReqJoin reqDto) {
-        return null;
-        
+        return authServiceApiV1.joinProc(reqDto);
     }
-    
 }

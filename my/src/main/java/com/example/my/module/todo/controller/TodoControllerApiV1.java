@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.my.common.DTO.ResDTO;
+import com.example.my.common.dto.ResDTO;
 import com.example.my.module.todo.service.TodoServiceApiV1;
 
 import lombok.RequiredArgsConstructor;

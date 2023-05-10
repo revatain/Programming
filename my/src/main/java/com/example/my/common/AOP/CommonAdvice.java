@@ -1,11 +1,11 @@
-package com.example.my.common.AOP;
+package com.example.my.common.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-import com.example.my.common.Exception.EntityNotFoundException;
+import com.example.my.common.exception.EntityNotFoundException;
 
 @Aspect
 @Component

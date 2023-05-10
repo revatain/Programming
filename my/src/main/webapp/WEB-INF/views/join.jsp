@@ -123,7 +123,23 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
       };
 
       //  rest 통신
-
+      fetch("/api/v1/auth/join", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify(user),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          alert(result.message);
+          if (result.code == 0) {
+            location.replace("/auth/login");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     };
 
     // 유효성 검사 ( 아이디, 비밀번호 등 내용이 비어있는지 확인 )

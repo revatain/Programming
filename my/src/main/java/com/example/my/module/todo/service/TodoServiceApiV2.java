@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.my.common.DTO.ResDTO;
+import com.example.my.common.dto.ResDTO;
 import com.example.my.module.todo.dto.TodoDTO;
 import com.example.my.module.todo.entity.TodoEntity;
 import com.example.my.module.todo.repository.TodoRepository;

@@ -48,8 +48,9 @@ dependencies {
 	// AOP
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
 
-	// Security
+	// 시큐리티
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+
 
 	// JSP 파일을 인식하는 라이브러리
 	// main 아래 webapp 폴더 안의 JSP만 인식한다

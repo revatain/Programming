@@ -12,9 +12,11 @@ import com.example.my.module.user.entity.UserRoleEntity;
 @Mapper
 public interface UserRoleRepository {
 
-    List<UserRoleRepository> findByuserIdx(Integer userIdx);
-    List<String> findRoleByuserIdx(Integer userIdx);
-    UserRoleRepository findRoleByuserIdxAndRole(@Param("userIdx") Integer userIdx, @Param("role") String role);
-    Integer insert(UserRoleEntity UserRoleEntity);
-    
+    List<UserRoleEntity> findByUserIdx(Integer userIdx);
+
+    List<String> findRoleByUserIdx(Integer userIdx);
+
+    UserRoleEntity findByUserIdxAndRole(@Param("userIdx") Integer userIdx, @Param("role") String role);
+
+    Integer insert(UserRoleEntity userRoleEntity);
 }
