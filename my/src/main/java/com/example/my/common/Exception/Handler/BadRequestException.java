@@ -1,4 +1,4 @@
-package com.example.my.common.Exception.Handler;
+package com.example.my.common.exception.handler;
 
 public class BadRequestException {
     public BadRequestException(){
