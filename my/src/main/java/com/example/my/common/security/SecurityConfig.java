@@ -1,4 +1,4 @@
-package com.example.my.config.security;
+package com.example.my.common.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +28,7 @@ public class SecurityConfig {
                         .and()
                         .headers().frameOptions().sameOrigin();
             } catch (Exception e) {
+                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         });
@@ -37,12 +38,9 @@ public class SecurityConfig {
                 // 패턴에 해당하는 주소는 허용
                 .antMatchers("/auth/login", "/auth/join", "/api/*/auth/**")
                 .permitAll()
-                .antMatchers("/todoList")
-                .hasRole("USER")
                 // 모든 페이지를 인증하게 만듬
                 .anyRequest()
-                .authenticated()
-                );
+                .authenticated());
 
         // formLogin과 관련된 내용
         http.formLogin(config -> config
