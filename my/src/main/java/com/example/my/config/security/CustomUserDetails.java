@@ -12,15 +12,17 @@ import com.example.my.module.user.entity.UserRoleEntity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+
 @Getter
 @RequiredArgsConstructor
 public class CustomUserDetails implements UserDetails{
     private final UserEntity userEntity;
     private final List<UserRoleEntity> userRoleEntityList;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> grantedAuthorityList = new ArrayList<>();
-        for (GrantedAuthority grantedAuthority : userRoleEntityList) {
+        for (UserRoleEntity userRoleEntity : userRoleEntityList) {
             grantedAuthorityList.add(new GrantedAuthority() {
 
                 @Override
@@ -29,6 +31,8 @@ public class CustomUserDetails implements UserDetails{
                 }             
             });
         }
+
+        return grantedAuthorityList;
     }
 
     @Override
