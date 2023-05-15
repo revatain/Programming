@@ -6,9 +6,6 @@ import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotBlank;
 
-import org.springframework.security.core.userdetails.User;
-
-import com.example.my.module.todo.dto.TodoDTO.ResBasic.Todo;
 import com.example.my.module.todo.entity.TodoEntity;
 import com.example.my.module.user.entity.UserEntity;
 
@@ -28,25 +25,27 @@ public class TodoDTO {
         @NotBlank(message = "내용을 입력해 주세요.")
         private String content;
 
-        public TodoEntity toEntity(Integer userIdx){
+        // v3 꺼
+        public TodoEntity toEntity(Integer userIdx) {
             return TodoEntity.builder()
-            .userIdx(userIdx)
-            .content(content)
-            .doneYn('N')
-            .deleteYn('N')
-            .createDate(LocalDateTime.now())
-            .build();
+                    .userIdx(userIdx)
+                    .content(content)
+                    .doneYn('N')
+                    .deleteYn('N')
+                    .createDate(LocalDateTime.now())
+                    .build();
         }
-        public TodoEntity toEntity(){
+
+        // v2 꺼
+        public TodoEntity toEntity() {
             return TodoEntity.builder()
-            .content(content)
-            .doneYn('N')
-            .deleteYn('N')
-            .createDate(LocalDateTime.now())
-            .build();
+                    .content(content)
+                    .doneYn('N')
+                    .deleteYn('N')
+                    .createDate(LocalDateTime.now())
+                    .build();
         }
     }
-
 
     @Data
     @Builder
@@ -54,13 +53,7 @@ public class TodoDTO {
     @AllArgsConstructor
     public static class ResBasic {
         private List<Todo> todoList;
-        @Data
-        @Builder
-        @NoArgsConstructor
-        @AllArgsConstructor
-        static class User{
-            String id;
-        }
+
         // 해당 static class 내부에서만 사용하는 클래스
         @Data
         @Builder
@@ -77,33 +70,57 @@ public class TodoDTO {
             // map 기존 리스트 데이터를 다른 타입의 리스트 데이터로 변경
             List<Todo> todoList = todoEntityList.stream().map(todoEntity -> {
                 return Todo.builder()
-                    .idx(todoEntity.getIdx())
-                    .content(todoEntity.getContent())
-                    .doneYn(todoEntity.getDoneYn())
-                    .build();
+                        .idx(todoEntity.getIdx())
+                        .content(todoEntity.getContent())
+                        .doneYn(todoEntity.getDoneYn())
+                        .build();
             }).collect(Collectors.toList());
 
             return new ResBasic(todoList);
         }
     }
+
     @Data
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class ResMy{
-        Integer idx;
-        String content;
-        Character doneYn;
-    }
-    public static ResMy fromUserEntityAndTodoEntityList() {
-        User user = user.builder().id(UserEntity.getId()).build();
-        List<Todo> todoList = todoEntityList.stream().map(todoEntity -> {
-            return Todo.builder()
-                .idx(todoEntity.getIdx())
-                .content(todoEntity.getContent())
-                .doneYn(todoEntity.getDoneYn())
-                .build();
-        }).collect(Collectors.toList());
-        return new ResMy(user, todoList);
+    public static class ResMy {
+        private User user;
+        private List<Todo> todoList;
+
+        @Data
+        @Builder
+        @NoArgsConstructor
+        @AllArgsConstructor
+        static class User {
+            String id;
+        }
+
+        @Data
+        @Builder
+        @NoArgsConstructor
+        @AllArgsConstructor
+        static class Todo {
+            Integer idx;
+            String content;
+            Character doneYn;
+        }
+
+        public static ResMy fromUserEntityAndTodoEntityList(UserEntity userEntity, List<TodoEntity> todoEntityList) {
+            User user = User.builder()
+                    .id(userEntity.getId())
+                    .build();
+
+            List<Todo> todoList = todoEntityList.stream().map(todoEntity -> {
+                return Todo.builder()
+                        .idx(todoEntity.getIdx())
+                        .content(todoEntity.getContent())
+                        .doneYn(todoEntity.getDoneYn())
+                        .build();
+            }).collect(Collectors.toList());
+
+            return new ResMy(user, todoList);
+        }
+
     }
 }

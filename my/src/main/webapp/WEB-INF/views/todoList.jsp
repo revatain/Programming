@@ -74,11 +74,13 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
     // get
     const init = () => {
-      fetch("/api/v2/todo", {
+      fetch("/api/v3/todo", {
         method: "GET",
       })
         .then((res) => res.json())
         .then((result) => {
+          console.log(result);
+
           const userId = result.data.user.id;
           const todoList = result.data.todoList.filter(
             (todo) => todo.doneYn == "N"
@@ -158,6 +160,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
           }
         })
         .catch((error) => {
+          console.log(error);
           alert("에러가 발생했습니다.");
         });
     };
@@ -180,7 +183,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
           content: contentInput.value,
         };
 
-        fetch("/api/v2/todo", {
+        fetch("/api/v3/todo", {
           method: "POST",
           headers: {
             "Content-Type": "application/json;charset=utf-8",
@@ -199,7 +202,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     });
 
     const setDone = (idx) => {
-      fetch("/api/v2/todo/" + idx, {
+      fetch("/api/v3/todo/" + idx, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -215,7 +218,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     };
 
     const setDelete = (idx) => {
-      fetch("/api/v2/todo/" + idx, {
+      fetch("/api/v3/todo/" + idx, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
