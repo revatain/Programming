@@ -24,6 +24,15 @@ public class TodoDTO {
         @NotBlank(message = "내용을 입력해 주세요.")
         private String content;
 
+        public TodoEntity toEntity(Integer userIdx){
+            return TodoEntity.builder()
+            .userIdx(userIdx)
+            .content(content)
+            .doneYn('N')
+            .deleteYn('N')
+            .createDate(LocalDateTime.now())
+            .build();
+        }
         public TodoEntity toEntity(){
             return TodoEntity.builder()
             .content(content)
