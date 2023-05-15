@@ -125,7 +125,28 @@
         }
 
         // form 통신
+        // const formData = new FormData();
+        // formData.append("id", idElement.value);
+        // formData.append("pw", pwElement.value);
 
+        const formTag = document.createElement("form");
+        formTag.action = "/login-process";
+        formTag.method = "POST";
+
+        const idInputTag = document.createElement("input");
+        idInputTag.type = "hidden";
+        idInputTag.name = "id";
+        idInputTag.value = idElement.value;
+        formTag.appendChild(idInputTag);
+
+        const pwInputTag = document.createElement("input");
+        pwInputTag.type = "hidden";
+        pwInputTag.name = "id";
+        pwInputTag.value = pwElement.value;
+        formTag.appendChild(pwInputTag);
+
+        document.body.appendChild(formTag);
+        formTag.submit();
     };
 
     // 아이디와 비밀번호 입력창이 비어있는지 검사하는 함수
