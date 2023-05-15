@@ -6,7 +6,11 @@ import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.security.core.userdetails.User;
+
+import com.example.my.module.todo.dto.TodoDTO.ResBasic.Todo;
 import com.example.my.module.todo.entity.TodoEntity;
+import com.example.my.module.user.entity.UserEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -50,7 +54,13 @@ public class TodoDTO {
     @AllArgsConstructor
     public static class ResBasic {
         private List<Todo> todoList;
-
+        @Data
+        @Builder
+        @NoArgsConstructor
+        @AllArgsConstructor
+        static class User{
+            String id;
+        }
         // 해당 static class 내부에서만 사용하는 클래스
         @Data
         @Builder
@@ -75,5 +85,25 @@ public class TodoDTO {
 
             return new ResBasic(todoList);
         }
+    }
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ResMy{
+        Integer idx;
+        String content;
+        Character doneYn;
+    }
+    public static ResMy fromUserEntityAndTodoEntityList() {
+        User user = user.builder().id(UserEntity.getId()).build();
+        List<Todo> todoList = todoEntityList.stream().map(todoEntity -> {
+            return Todo.builder()
+                .idx(todoEntity.getIdx())
+                .content(todoEntity.getContent())
+                .doneYn(todoEntity.getDoneYn())
+                .build();
+        }).collect(Collectors.toList());
+        return new ResMy(user, todoList);
     }
 }
