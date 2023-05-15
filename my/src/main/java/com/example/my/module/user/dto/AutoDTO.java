@@ -2,7 +2,6 @@ package com.example.my.module.user.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

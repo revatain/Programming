@@ -56,6 +56,7 @@ public class SecurityConfig {
                 .usernameParameter("id")
                 // 비밀번호도 마찬가지.
                 .passwordParameter("pw")
+                .failureHandler(new CustomAuthFailureHandler())
                 // 로그인 성공 시 이동 페이지
                 // 두번째 매개변수는 로그인 성공 시 항상 세팅 페이지로 이동하게 함
                 .defaultSuccessUrl("/todoList", true));
