@@ -46,9 +46,15 @@ public class SecurityConfig {
 
         // formLogin과 관련된 내용
         http.formLogin(config -> config
+                // 우리가 직접 만든 로그인 페이지를 사용한다.
                 .loginPage("/auth/login")
+                // loginProc
+                // 로그인 폼, 액션에 넣어주면 작동함
                 .loginProcessingUrl("/login-process")
+                // 흔히 말하는 로그인 아이디를 유저네임이라 한다.
+                // 해당 파라미터를 커스텀 할 수 있다.
                 .usernameParameter("id")
+                // 비밀번호도 마찬가지.
                 .passwordParameter("pw")
                 // 로그인 성공 시 이동 페이지
                 // 두번째 매개변수는 로그인 성공 시 항상 세팅 페이지로 이동하게 함
