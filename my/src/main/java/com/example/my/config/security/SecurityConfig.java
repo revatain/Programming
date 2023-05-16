@@ -30,7 +30,6 @@ public class SecurityConfig {
                         .and()
                         .headers().frameOptions().sameOrigin();
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         });
